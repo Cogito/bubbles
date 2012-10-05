@@ -7,10 +7,12 @@ class Player extends CircleMovingInGameObject
     super(x, y, radius, 0, 0, new Rgba(255,0,0,0.9), 'black')
     @last_bullet_shot = 0
     @age = 0
+    @bullets_shot = 0
   shoot: =>
     [x,y] = @gunpoint()
     (bullets.push(new Bullet(x,y,@radius*BULLET_SHOOTER_RATIO,@x_velocity*2, @y_velocity*2)); @last_bullet_shot = @age) if @last_bullet_shot + 10 < @age
     @radius = @radius * (1 - SHOOTER_SHOOT_LOSS)
+    @bullets_shot += 1
 
   gunpoint: =>
     [@x+@width/2,@y+@height/2]
