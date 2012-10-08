@@ -8,6 +8,10 @@ runtime = (time) ->
  #the update methode, executed before every draw
 update = ->
 
+  #if game is paused, don't do updates!
+  if paused
+    return
+
   #we check for coliding enemies
   for enemy in enemies
     do (enemy) ->

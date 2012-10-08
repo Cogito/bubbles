@@ -20,6 +20,11 @@ circleCollides = (c1,c2) ->
 
 
 
+togglePause = () ->
+  if !pauseLocked
+    paused = !paused
+    pauseLocked = true
+
 #helpers
 #keydown helper
 window.keydown = {}
@@ -30,11 +35,13 @@ keyName = (event) ->
 $(document).bind("keydown", ((event) ->
 #  console.log 'keydown: "' + keyName(event)+'"'
   keydown[keyName(event)] = true;
+  if keyName(event) == 'p' then togglePause()
   ))
 
 $(document).bind("keyup", ((event) ->
 #  console.log 'keyup: "' + keyName(event)+'"'
   keydown[keyName(event)] = false;
+  if keyName(event) == 'p' then pauseLocked = false
   ))
 
 #extending root objects

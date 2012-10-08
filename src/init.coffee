@@ -25,6 +25,8 @@ enemies = []
 explosions = []
 player1 = {}
 s_t_a_r_t = false
+paused = false
+pauseLocked = false
 
 #INIT
 ##defining the game canvas
